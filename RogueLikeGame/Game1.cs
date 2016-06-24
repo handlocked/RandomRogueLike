@@ -13,6 +13,15 @@ namespace RogueLikeGame
         SpriteBatch spriteBatch;
         AnimatedSprite explosion;
         Player player;
+        Map map1 = new Map();
+
+        int[,] mapDetailed = new int[,]
+        {
+            {0,1,0,0,1},
+            {0,1,1,1,1}
+        };
+
+       
 
         public Game1()
         {
@@ -45,10 +54,11 @@ namespace RogueLikeGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
             explosion = new AnimatedSprite(
                 Content.Load<Texture2D>(@"Textures\explosions"), 0, 0, 64, 64, 16);
-
+            
             explosion.X = 0;
             explosion.Y = 0;
 
+            map1.GenerateMap(mapDetailed, 64);
             player = new Player(Content.Load<Texture2D>(@"Textures\PlayerTwo"), 0, 0, 64, 64);
             ScreenManager.Instance.LoadContent(Content);
         }
@@ -88,6 +98,7 @@ namespace RogueLikeGame
             
             ScreenManager.Instance.Draw(spriteBatch);
             spriteBatch.Begin();
+            map1.Draw(spriteBatch);
             explosion.Draw(spriteBatch, 0, 0, false);
             player.Draw(spriteBatch);
             spriteBatch.End();

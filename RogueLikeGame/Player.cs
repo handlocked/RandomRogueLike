@@ -56,21 +56,21 @@ namespace RogueLikeGame
 
             if (pressedkey.IsKeyDown(Keys.W))
             {
-                yPos += 5;
+                yPos -= 5;
             }
             if (pressedkey.IsKeyDown(Keys.S))
             {
-                yPos -= 5;
+                yPos += 5;
             }
-            if (pressedkey.IsKeyDown(Keys.W))
+            if (pressedkey.IsKeyDown(Keys.D))
             {
                 xPos += 5;
             }
-            if (pressedkey.IsKeyDown(Keys.W))
+            if (pressedkey.IsKeyDown(Keys.A))
             {
                 xPos -= 5;
             }
         }
-      
+           
     }
 }

@@ -27,3 +27,30 @@ E:\VS 2015\RogueLikeGame\RogueLikeGame\obj\x86\Debug\RogueLikeGame.exe
 E:\VS 2015\RogueLikeGame\RogueLikeGame\obj\x86\Debug\RogueLikeGame.pdb
 E:\VS 2015\RogueLikeGame\RogueLikeGame\bin\Windows\x86\Debug\Content\Textures\explosions.xnb
 E:\VS 2015\RogueLikeGame\RogueLikeGame\bin\Windows\x86\Debug\Content\Textures\PlayerTwo.xnb
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\Content\Textures\explosions.xnb
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\Content\Textures\PlayerTwo.xnb
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\RogueLikeGame.exe
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\RogueLikeGame.pdb
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\obj\x86\Debug\RogueLikeGame.csprojResolveAssemblyReference.cache
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\obj\x86\Debug\RogueLikeGame.exe
+C:\Users\Jurib_000\Desktop\RandomRogue\RogueLikeGame\obj\x86\Debug\RogueLikeGame.pdb

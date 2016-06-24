@@ -41,6 +41,8 @@
     <Compile Include="AnimatedSprite.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="MapContent\Map.cs" />
+    <Compile Include="MapContent\Tiles.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
