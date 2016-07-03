@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.IO;
 
 namespace RogueLikeGame
 {
@@ -14,6 +15,8 @@ namespace RogueLikeGame
         AnimatedSprite explosion;
         Player player;
         Map map1 = new Map();
+        ExperienceBar expBar;
+        StreamWriter sw = new StreamWriter("C:/Users/Juri/Desktop/Map.txt");
 
         int[,] mapDetailed = new int[,]
         {
@@ -57,9 +60,16 @@ namespace RogueLikeGame
             
             explosion.X = 0;
             explosion.Y = 0;
+            
 
+            foreach (var item in mapDetailed)
+                sw.Write(item);
+
+
+            sw.Close();
             map1.GenerateMap(mapDetailed, 64);
             player = new Player(Content.Load<Texture2D>(@"Textures\PlayerTwo"), 0, 0, 64, 64);
+            expBar = new ExperienceBar(Content.Load<Texture2D>(@"Textures\EXP_BALKEN1"));
             ScreenManager.Instance.LoadContent(Content);
         }
 
@@ -98,6 +108,7 @@ namespace RogueLikeGame
             
             ScreenManager.Instance.Draw(spriteBatch);
             spriteBatch.Begin();
+            expBar.Draw(spriteBatch);
             map1.Draw(spriteBatch);
             explosion.Draw(spriteBatch, 0, 0, false);
             player.Draw(spriteBatch);

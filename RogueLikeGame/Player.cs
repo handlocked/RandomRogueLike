@@ -14,6 +14,8 @@ namespace RogueLikeGame
 {
     class Player : GameObject
     {
+        private float experience = 0f;
+
         KeyboardState pressedkey;
         Texture2D t2dtexture;
 

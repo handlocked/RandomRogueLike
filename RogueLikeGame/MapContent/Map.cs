@@ -9,14 +9,14 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using System.IO;
+
 
 namespace RogueLikeGame
 {
     class Map
     {
         List<CollisionTiles> collTiles = new List<CollisionTiles>();
-
+        
         public List<CollisionTiles> CollTiles
         {
             get { return collTiles; }
@@ -62,6 +62,7 @@ namespace RogueLikeGame
 
                 }
             }
+           
         }
         public void Draw(SpriteBatch spritebatch)
         {
