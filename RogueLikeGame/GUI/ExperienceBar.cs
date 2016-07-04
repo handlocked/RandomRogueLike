@@ -13,25 +13,47 @@ namespace RogueLikeGame
     class ExperienceBar : UIObjects
     {
         private Texture2D Ttext2D;
+        private Texture2D TExpPic;
 
-        private int exp = 0;
+        private int BarPosX, BarPosY;
 
-        public int EXP
+        private int expWidth = 250;
+
+        public int EXPWidth
         {
             get
             {
-                return exp;
-            }
-
-            set
-            {
-                exp = value;
+                return expWidth;
             }
         }
 
-        public ExperienceBar(Texture2D text2d)
+        private int expHeight = 100;
+
+        public int EXPHeight
         {
-            Ttext2D = text2d;
+            get
+            {
+                return expHeight;
+            }
+        }
+
+        private Rectangle rect;
+
+        public Rectangle SetRectEXP
+        {
+            set
+            {
+                rect = value;
+            }
+        }
+   
+
+        public ExperienceBar(Texture2D EXPBalken, Texture2D EXPPic, int xPos, int yPos)
+        {
+            Ttext2D = EXPBalken;
+            TExpPic = EXPPic;
+            BarPosX = xPos;
+            BarPosY = yPos;
         }
         public override void Update(GameTime gameTime)
         {
@@ -40,7 +62,16 @@ namespace RogueLikeGame
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Ttext2D, new Rectangle(100, 100, 250, 100), Color.White);
+            spriteBatch.Draw(Ttext2D, new Rectangle(BarPosX, BarPosY, expWidth, expHeight), Color.White);
+
+        }
+
+       
+
+        public void DrawExp(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(TExpPic, rect, Color.White);
+
         }
         
 

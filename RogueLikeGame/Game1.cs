@@ -16,7 +16,11 @@ namespace RogueLikeGame
         Player player;
         Map map1 = new Map();
         ExperienceBar expBar;
+        SpriteFont font;
         StreamWriter sw = new StreamWriter("C:/Users/Juri/Desktop/Map.txt");
+
+        int MonitorWidth, MonitorHeight;
+
 
         int[,] mapDetailed = new int[,]
         {
@@ -57,19 +61,30 @@ namespace RogueLikeGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
             explosion = new AnimatedSprite(
                 Content.Load<Texture2D>(@"Textures\explosions"), 0, 0, 64, 64, 16);
-            
-            explosion.X = 0;
-            explosion.Y = 0;
-            
 
+            font = Content.Load<SpriteFont>(@"myFont");
+
+            //Setzt die Position von der Animation auf 0
+            explosion.X = GraphicsDevice.Viewport.Width;
+            explosion.Y = GraphicsDevice.Viewport.Height;
+            
+            //Schreibt Daten der Karte in eine Datei
             foreach (var item in mapDetailed)
                 sw.Write(item);
-
-
             sw.Close();
+
             map1.GenerateMap(mapDetailed, 64);
+
+            //EXP Bar Koordinaten
+            MonitorWidth = GraphicsDevice.Viewport.Width / 2;
+            MonitorHeight = GraphicsDevice.Viewport.Height / 4;
+
+            //Instanzierungen
             player = new Player(Content.Load<Texture2D>(@"Textures\PlayerTwo"), 0, 0, 64, 64);
-            expBar = new ExperienceBar(Content.Load<Texture2D>(@"Textures\EXP_BALKEN1"));
+
+            expBar = new ExperienceBar
+            (Content.Load<Texture2D>(@"Textures\EXP_BALKEN1"),Content.Load<Texture2D>(@"Textures\EXP_EXP1"), MonitorWidth, MonitorHeight);
+
             ScreenManager.Instance.LoadContent(Content);
         }
 
@@ -92,10 +107,19 @@ namespace RogueLikeGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+
+            //Exp - Darstellungsberechnung
+            var maxEP = player.ExpToUP;
+            int divison = expBar.EXPWidth / maxEP * player.EXP;
+
+            expBar.SetRectEXP = new Rectangle(MonitorWidth, MonitorHeight, divison ,expBar.EXPHeight);
+
+
             ScreenManager.Instance.Update(gameTime);
             explosion.Update(gameTime);
             player.Update(gameTime);
             base.Update(gameTime);
+
         }
 
         /// <summary>
@@ -108,10 +132,20 @@ namespace RogueLikeGame
             
             ScreenManager.Instance.Draw(spriteBatch);
             spriteBatch.Begin();
+
+            expBar.DrawExp(spriteBatch);
             expBar.Draw(spriteBatch);
-            map1.Draw(spriteBatch);
-            explosion.Draw(spriteBatch, 0, 0, false);
+            
+
             player.Draw(spriteBatch);
+
+            spriteBatch.DrawString(font, "Level: " + player.Level, new Vector2(0, 0), Color.White);
+            spriteBatch.DrawString(font, "EXP: " + player.EXP, new Vector2(0, 40), Color.White);
+
+            map1.Draw(spriteBatch);
+
+            explosion.Draw(spriteBatch, 0, 0, false);
+
             spriteBatch.End();
             base.Draw(gameTime);
         }
