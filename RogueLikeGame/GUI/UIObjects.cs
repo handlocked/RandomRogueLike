@@ -10,6 +10,7 @@ namespace RogueLikeGame.GUI
 {
     class UIObjects
     {
+
         public virtual void Update(GameTime gameTime)
         {
 

@@ -4,10 +4,12 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>E:/VS 2015/RogueLikeGame/RogueLikeGame/Content/Textures/explosions.png</File>
-    <File>E:/VS 2015/RogueLikeGame/RogueLikeGame/Content/Textures/PlayerTwo.png</File>
-    <File>E:/VS 2015/RogueLikeGame/RogueLikeGame/Content/Textures/EXP_Balken1.png</File>
-    <File>E:/VS 2015/RogueLikeGame/RogueLikeGame/Content/myFont.spritefont</File>
-    <File>E:/VS 2015/RogueLikeGame/RogueLikeGame/Content/Textures/EXP_EXP1.png</File>
+    <File>D:/VS 2015/RogueLikeGame/RogueLikeGame/Content/Textures/explosions.png</File>
+    <File>D:/VS 2015/RogueLikeGame/RogueLikeGame/Content/Textures/PlayerTwo.png</File>
+    <File>D:/VS 2015/RogueLikeGame/RogueLikeGame/Content/Textures/EXP_Balken1.png</File>
+    <File>D:/VS 2015/RogueLikeGame/RogueLikeGame/Content/myFont.spritefont</File>
+    <File>D:/VS 2015/RogueLikeGame/RogueLikeGame/Content/Textures/EXP_EXP1.png</File>
+    <File>D:/VS 2015/RogueLikeGame/RogueLikeGame/Content/Textures/Demongirl.png</File>
+    <File>D:/VS 2015/RogueLikeGame/RogueLikeGame/Content/Textures/HealthBar.png</File>
   </SourceFiles>
 </SourceFileCollection>

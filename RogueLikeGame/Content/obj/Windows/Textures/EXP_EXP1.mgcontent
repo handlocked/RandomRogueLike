@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>E:/VS 2015/RogueLikeGame/RogueLikeGame/Content/Textures/EXP_EXP1.png</SourceFile>
+  <SourceFile>D:/VS 2015/RogueLikeGame/RogueLikeGame/Content/Textures/EXP_EXP1.png</SourceFile>
   <SourceTime>2016-07-04T02:41:55.119973+02:00</SourceTime>
-  <DestFile>E:/VS 2015/RogueLikeGame/RogueLikeGame/Content/bin/Windows/Textures/EXP_EXP1.xnb</DestFile>
-  <DestTime>2016-07-04T03:01:18.2802633+02:00</DestTime>
+  <DestFile>D:/VS 2015/RogueLikeGame/RogueLikeGame/Content/bin/Windows/Textures/EXP_EXP1.xnb</DestFile>
+  <DestTime>2016-07-06T16:22:18.8064267+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.IO;
+using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace RogueLikeGame
 {
@@ -10,6 +12,8 @@ namespace RogueLikeGame
     /// </summary>
     public class Game1 : Game
     {
+        List<Enemy> Enemies = new List<Enemy>();
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         AnimatedSprite explosion;
@@ -17,10 +21,22 @@ namespace RogueLikeGame
         Map map1 = new Map();
         ExperienceBar expBar;
         SpriteFont font;
-        StreamWriter sw = new StreamWriter("C:/Users/Juri/Desktop/Map.txt");
+        StreamWriter sw = new StreamWriter("" + System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop) + "/map.txt");
+        GUI.DynamicButton DynamicB;
+        Enemy Witch;
+       static Texture2D healthbar;
 
+        public static Texture2D Healthbar
+        {
+            get
+            {
+                return healthbar;
+            }
+            
+        }
         int MonitorWidth, MonitorHeight;
 
+        
 
         int[,] mapDetailed = new int[,]
         {
@@ -57,12 +73,22 @@ namespace RogueLikeGame
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            explosion = new AnimatedSprite(
-                Content.Load<Texture2D>(@"Textures\explosions"), 0, 0, 64, 64, 16);
+            Enemies.Add(Witch);
 
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            //EXP Bar Koordinaten
+            MonitorWidth = GraphicsDevice.Viewport.Width / 2;
+            MonitorHeight = GraphicsDevice.Viewport.Height / 4;
+
+            healthbar = Content.Load<Texture2D>(@"Textures\HealthBar");
+            explosion = new AnimatedSprite(Content.Load<Texture2D>(@"Textures\explosions"), 0, 0, 64, 64, 16);
+            player = new Player(Content.Load<Texture2D>(@"Textures\PlayerTwo"), 0, 0, 64, 64);
             font = Content.Load<SpriteFont>(@"myFont");
+            Witch = new Enemy(Content.Load<Texture2D>(@"Textures\Demongirl"), 100, 100, 64, 64);
+            expBar = new ExperienceBar
+            (Content.Load<Texture2D>(@"Textures\EXP_BALKEN1"), Content.Load<Texture2D>(@"Textures\EXP_EXP1"), MonitorWidth - 100, GraphicsDevice.Viewport.Bounds.Bottom - 100);
+
 
             //Setzt die Position von der Animation auf 0
             explosion.X = GraphicsDevice.Viewport.Width;
@@ -74,16 +100,6 @@ namespace RogueLikeGame
             sw.Close();
 
             map1.GenerateMap(mapDetailed, 64);
-
-            //EXP Bar Koordinaten
-            MonitorWidth = GraphicsDevice.Viewport.Width / 2;
-            MonitorHeight = GraphicsDevice.Viewport.Height / 4;
-
-            //Instanzierungen
-            player = new Player(Content.Load<Texture2D>(@"Textures\PlayerTwo"), 0, 0, 64, 64);
-
-            expBar = new ExperienceBar
-            (Content.Load<Texture2D>(@"Textures\EXP_BALKEN1"),Content.Load<Texture2D>(@"Textures\EXP_EXP1"), MonitorWidth, MonitorHeight);
 
             ScreenManager.Instance.LoadContent(Content);
         }
@@ -107,13 +123,12 @@ namespace RogueLikeGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-
             //Exp - Darstellungsberechnung
             var maxEP = player.ExpToUP;
             int divison = expBar.EXPWidth / maxEP * player.EXP;
 
             expBar.SetRectEXP = new Rectangle(MonitorWidth, MonitorHeight, divison ,expBar.EXPHeight);
-
+          
 
             ScreenManager.Instance.Update(gameTime);
             explosion.Update(gameTime);
@@ -138,16 +153,22 @@ namespace RogueLikeGame
             
 
             player.Draw(spriteBatch);
-
+            Witch.Draw(spriteBatch);
             spriteBatch.DrawString(font, "Level: " + player.Level, new Vector2(0, 0), Color.White);
             spriteBatch.DrawString(font, "EXP: " + player.EXP, new Vector2(0, 40), Color.White);
 
             map1.Draw(spriteBatch);
 
             explosion.Draw(spriteBatch, 0, 0, false);
-
+            
             spriteBatch.End();
             base.Draw(gameTime);
         }
+
+        public void CheckCollision()
+        {
+            
+        }
+       
     }
 }

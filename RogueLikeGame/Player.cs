@@ -8,14 +8,16 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
-
+using RogueLikeGame.GUI;
 
 namespace RogueLikeGame
 {
+    
     class Player : GameObject
     {
         private int experience = 0;
-
+        Healthbar healthbar;
+       
         public int EXP
         {
             get
@@ -62,7 +64,9 @@ namespace RogueLikeGame
         Texture2D t2dtexture;
 
         int xPos, yPos, height, width;
-   
+
+    
+
         public Player(Texture2D Ttexture, int XPOS, int YPOS, int HEIGHT, int WIDTH)
         {
             t2dtexture = Ttexture;
@@ -70,7 +74,7 @@ namespace RogueLikeGame
             yPos = YPOS;
             height = HEIGHT;
             width = WIDTH;
-
+            healthbar = new Healthbar(Game1.Healthbar, xPos + 20, yPos + 20);
 
         }
         public void LoadContent()
@@ -85,7 +89,8 @@ namespace RogueLikeGame
         public override void Update(GameTime gameTime)
         {
             Move();
-
+            healthbar.X = xPos + 10;
+            healthbar.Y = yPos - 20;
             if(experience >= ExpToLevelUP)
             {
                 level++;
@@ -98,7 +103,7 @@ namespace RogueLikeGame
         {
            
             spriteBatch.Draw(t2dtexture, new Rectangle(xPos, yPos, width, height), Color.White);
-          
+            healthbar.Draw(spriteBatch);
         }
 
         public void Move()

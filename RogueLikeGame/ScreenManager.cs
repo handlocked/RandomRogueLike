@@ -20,7 +20,7 @@ namespace RogueLikeGame
 
         public ScreenManager()
         {
-            Dimensions = new Vector2(640, 480);
+            Dimensions = new Vector2(1280, 720);
         }
 
         public static ScreenManager Instance

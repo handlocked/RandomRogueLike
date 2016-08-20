@@ -39,9 +39,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AnimatedSprite.cs" />
+    <Compile Include="Enemy.cs" />
+    <Compile Include="GUI\DynamicButton.cs" />
     <Compile Include="GUI\ExperienceBar.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="GUI\Healthbar.cs" />
     <Compile Include="GUI\UIObjects.cs" />
     <Compile Include="MapContent\Map.cs" />
     <Compile Include="MapContent\Tiles.cs" />
