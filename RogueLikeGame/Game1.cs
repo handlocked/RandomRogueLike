@@ -13,18 +13,23 @@ namespace RogueLikeGame
     public class Game1 : Game
     {
         List<Enemy> Enemies = new List<Enemy>();
-
+        DebugLog debug = new DebugLog();
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         AnimatedSprite explosion;
         Player player;
         Map map1 = new Map();
         ExperienceBar expBar;
-        SpriteFont font;
+        static SpriteFont font;
         StreamWriter sw = new StreamWriter("" + System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop) + "/map.txt");
         GUI.DynamicButton DynamicB;
         Enemy Witch;
        static Texture2D healthbar;
+
+        public static SpriteFont Font
+        {
+            get { return font; }
+        }
 
         public static Texture2D Healthbar
         {
@@ -73,6 +78,7 @@ namespace RogueLikeGame
         /// </summary>
         protected override void LoadContent()
         {
+            this.IsMouseVisible = true;
             Enemies.Add(Witch);
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -120,6 +126,8 @@ namespace RogueLikeGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            debug.AddItem("" + player.X);
+            debug.AddItem("" + player.Y);
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
@@ -158,7 +166,7 @@ namespace RogueLikeGame
             spriteBatch.DrawString(font, "EXP: " + player.EXP, new Vector2(0, 40), Color.White);
 
             map1.Draw(spriteBatch);
-
+            debug.Draw(spriteBatch);
             explosion.Draw(spriteBatch, 0, 0, false);
             
             spriteBatch.End();

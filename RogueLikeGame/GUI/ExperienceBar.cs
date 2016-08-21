@@ -15,9 +15,9 @@ namespace RogueLikeGame
         private Texture2D Ttext2D;
         private Texture2D TExpPic;
 
-        private int BarPosX, BarPosY;
+       
 
-        private int expWidth = 250;
+        private int expWidth = 500;
 
         public int EXPWidth
         {
@@ -27,7 +27,7 @@ namespace RogueLikeGame
             }
         }
 
-        private int expHeight = 100;
+        private int expHeight = 25;
 
         public int EXPHeight
         {
@@ -52,8 +52,8 @@ namespace RogueLikeGame
         {
             Ttext2D = EXPBalken;
             TExpPic = EXPPic;
-            BarPosX = xPos;
-            BarPosY = yPos;
+            this.X = xPos;
+            this.Y = yPos;
         }
         public override void Update(GameTime gameTime)
         {
@@ -62,7 +62,7 @@ namespace RogueLikeGame
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Ttext2D, new Rectangle(BarPosX, BarPosY, expWidth, expHeight), Color.White);
+            spriteBatch.Draw(Ttext2D, new Rectangle(this.X, this.Y, expWidth, expHeight), Color.White);
 
         }
 

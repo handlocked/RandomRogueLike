@@ -13,32 +13,10 @@ namespace RogueLikeGame.GUI
     class Healthbar : UIObjects
     {
         private Texture2D Bar;
-        private int xpos, ypos;
+        
         private int health;
 
-        public int X
-        {
-            get
-            {
-                return xpos;
-            }
-            set
-            {
-                xpos = value;
-            }
-        }
 
-        public int Y
-        {
-            get
-            {
-                return ypos;
-            }
-            set
-            {
-                ypos = value;
-            }
-        }
 
 
         public int Health
@@ -56,8 +34,8 @@ namespace RogueLikeGame.GUI
         public Healthbar(Texture2D HBar, int xPos, int yPos)
         {
             Bar = HBar;
-            xpos = xPos;
-            ypos = yPos;
+           this.X = xPos;
+           this.Y = yPos;
         }
 
         public override void Update(GameTime gameTime)
@@ -68,7 +46,7 @@ namespace RogueLikeGame.GUI
         public override void Draw(SpriteBatch spriteBatch)
         {
         
-            spriteBatch.Draw(Bar, new Rectangle(xpos, ypos, 50, 10), Color.White);
+            spriteBatch.Draw(Bar, new Rectangle(this.X, this.Y, 50, 10), Color.White);
 
         }
     }

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
+using System.Drawing;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Windows;
+
 
 
 namespace RogueLikeGame.GUI
@@ -13,35 +15,12 @@ namespace RogueLikeGame.GUI
     public delegate void MouseEnter();
     public delegate void MouseLeft();
 
-    class DynamicButton 
+   
+    class DynamicButton : UIObjects
     {
+        private Button button = new Button();
         private string text = "";
-        private int xPos;
-        private int yPos;
-
-        public int ButtonX
-        {
-            get
-            {
-                return xPos;
-            }
-            set
-            {
-                xPos = value;
-            }
-        }
-
-        public int ButtonY
-        {
-            get
-            {
-                return yPos;
-            }
-            set
-            {
-                yPos = value;
-            }
-        }
+    
 
         public string Text
         {
@@ -58,12 +37,18 @@ namespace RogueLikeGame.GUI
 
         public event EventHandler Clicked;
 
-        public void Update(GameTime gameTime)
+        public DynamicButton(string text)
+        {
+            button.Location = new System.Drawing.Point(100, 100);
+            button.Show();
+        }
+
+        public override void Update(GameTime gameTime)
         {
 
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
        

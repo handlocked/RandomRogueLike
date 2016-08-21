@@ -62,22 +62,22 @@ namespace RogueLikeGame
 
         KeyboardState pressedkey;
         Texture2D t2dtexture;
-
-        int xPos, yPos, height, width;
+        int width, height;
+       
 
     
 
         public Player(Texture2D Ttexture, int XPOS, int YPOS, int HEIGHT, int WIDTH)
         {
             t2dtexture = Ttexture;
-            xPos = XPOS;
-            yPos = YPOS;
+            this.X = XPOS;
+            this.Y = YPOS;
             height = HEIGHT;
             width = WIDTH;
-            healthbar = new Healthbar(Game1.Healthbar, xPos + 20, yPos + 20);
+            healthbar = new Healthbar(Game1.Healthbar, this.X + 20, this.Y + 20);
 
         }
-        public void LoadContent()
+        public override void LoadContent()
         {
             
         }
@@ -88,9 +88,10 @@ namespace RogueLikeGame
 
         public override void Update(GameTime gameTime)
         {
+            base.Update(gameTime);
             Move();
-            healthbar.X = xPos + 10;
-            healthbar.Y = yPos - 20;
+            healthbar.X = this.X + 10;
+            healthbar.Y = this.Y - 20;
             if(experience >= ExpToLevelUP)
             {
                 level++;
@@ -102,7 +103,7 @@ namespace RogueLikeGame
         public void Draw(SpriteBatch spriteBatch)
         {
            
-            spriteBatch.Draw(t2dtexture, new Rectangle(xPos, yPos, width, height), Color.White);
+            spriteBatch.Draw(t2dtexture, new Rectangle(this.X, this.Y, width, height), Color.White);
             healthbar.Draw(spriteBatch);
         }
 
@@ -112,25 +113,25 @@ namespace RogueLikeGame
 
             if (pressedkey.IsKeyDown(Keys.W))
             {
-                yPos -= 5;
+                this.Y -= 5;
             }
             if (pressedkey.IsKeyDown(Keys.S))
             {
-                yPos += 5;
+                this.Y += 5;
             }
             if (pressedkey.IsKeyDown(Keys.D))
             {
-                xPos += 5;
+                this.X += 5;
             }
             if (pressedkey.IsKeyDown(Keys.A))
             {
-                xPos -= 5;
+                this.X -= 5;
             }
 
             if (pressedkey.IsKeyDown(Keys.L))
             {
                 experience += 2;
-                System.Threading.Thread.Sleep(100);
+             
             }
         }
            

@@ -49,17 +49,7 @@ namespace RogueLikeGame
         #endregion
 
         #region properties
-        public int X
-        {
-            get { return iScreenX; }
-            set { iScreenX = value; }
-        }
-
-        public int Y
-        {
-            get { return iScreenY; }
-            set { iScreenY = value; }
-        }
+   
 
         public int Frame
         {
