@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using System.IO;
 using System.Diagnostics;
 using System.Collections.Generic;
+using RogueLikeGame.GUI;
 
 namespace RogueLikeGame
 {
@@ -12,7 +13,13 @@ namespace RogueLikeGame
     /// </summary>
     public class Game1 : Game
     {
+        /// <summary>
+        /// Lists
+        /// </summary>
         List<Enemy> Enemies = new List<Enemy>();
+        List<GameObject> gos = new List<GameObject>();
+        List<UIObjects> uiobjs = new List<UIObjects>();
+
         DebugLog debug = new DebugLog();
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -22,8 +29,9 @@ namespace RogueLikeGame
         ExperienceBar expBar;
         static SpriteFont font;
         StreamWriter sw = new StreamWriter("" + System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop) + "/map.txt");
-        GUI.DynamicButton DynamicB;
+        DynamicButton DynamicB;
         Enemy Witch;
+
        static Texture2D healthbar;
 
         public static SpriteFont Font
@@ -86,7 +94,7 @@ namespace RogueLikeGame
             //EXP Bar Koordinaten
             MonitorWidth = GraphicsDevice.Viewport.Width / 2;
             MonitorHeight = GraphicsDevice.Viewport.Height / 4;
-
+            DynamicB = new DynamicButton("TestText", 200, 500, Content.Load<Texture2D>(@"Textures\Button"));
             healthbar = Content.Load<Texture2D>(@"Textures\HealthBar");
             explosion = new AnimatedSprite(Content.Load<Texture2D>(@"Textures\explosions"), 0, 0, 64, 64, 16);
             player = new Player(Content.Load<Texture2D>(@"Textures\PlayerTwo"), 0, 0, 64, 64);
@@ -126,17 +134,17 @@ namespace RogueLikeGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            debug.AddItem("" + player.X);
+           
             debug.AddItem("" + player.Y);
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
             //Exp - Darstellungsberechnung
-            var maxEP = player.ExpToUP;
-            int divison = expBar.EXPWidth / maxEP * player.EXP;
-
-            expBar.SetRectEXP = new Rectangle(MonitorWidth, MonitorHeight, divison ,expBar.EXPHeight);
           
+            int divison = expBar.EXPWidth / player.ExpToUP * player.EXP;
+
+            expBar.SetRectEXP = new Rectangle(200, 200, divison ,expBar.EXPHeight);
+            debug.Message = "Rect of expbar: " + expBar.SetRectEXP;
 
             ScreenManager.Instance.Update(gameTime);
             explosion.Update(gameTime);
@@ -158,12 +166,15 @@ namespace RogueLikeGame
 
             expBar.DrawExp(spriteBatch);
             expBar.Draw(spriteBatch);
-            
-
+            /* Einfügen für Menüs
+            DynamicB.Draw(spriteBatch);
+            */
             player.Draw(spriteBatch);
             Witch.Draw(spriteBatch);
             spriteBatch.DrawString(font, "Level: " + player.Level, new Vector2(0, 0), Color.White);
             spriteBatch.DrawString(font, "EXP: " + player.EXP, new Vector2(0, 40), Color.White);
+            spriteBatch.DrawString(font, "exp to up: " + player.ExpToUP, new Vector2(0, 80), Color.White);
+
 
             map1.Draw(spriteBatch);
             debug.Draw(spriteBatch);

@@ -23,8 +23,8 @@ namespace RogueLikeGame
         }
         public DebugLog()
         {
-            this.X = 200;
-            this.Y = 200;
+            this.X = 5;
+            this.Y = 500;
           
         }
 
@@ -42,11 +42,8 @@ namespace RogueLikeGame
 
         public override void Draw(SpriteBatch spritebatch)
         {
-            foreach (var item in messages)
-            {
-                this.Y += 20;
-                spritebatch.DrawString(Game1.Font, item, new Vector2(this.X, this.Y), Microsoft.Xna.Framework.Color.LightGray);
-            }
+          
+                spritebatch.DrawString(Game1.Font, "" + messagelog, new Vector2(this.X, this.Y), Microsoft.Xna.Framework.Color.LightGray);
         }
 
        

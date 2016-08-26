@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using RogueLikeGame.GUI;
 
 namespace RogueLikeGame
@@ -14,8 +15,6 @@ namespace RogueLikeGame
     {
         private Texture2D Ttext2D;
         private Texture2D TExpPic;
-
-       
 
         private int expWidth = 500;
 
@@ -41,6 +40,10 @@ namespace RogueLikeGame
 
         public Rectangle SetRectEXP
         {
+            get
+            {
+                return rect;
+            }
             set
             {
                 rect = value;
@@ -57,7 +60,8 @@ namespace RogueLikeGame
         }
         public override void Update(GameTime gameTime)
         {
-
+            expHeight = 500;
+           
         }
 
         public override void Draw(SpriteBatch spriteBatch)

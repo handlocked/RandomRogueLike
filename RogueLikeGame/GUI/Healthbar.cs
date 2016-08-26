@@ -16,9 +16,6 @@ namespace RogueLikeGame.GUI
         
         private int health;
 
-
-
-
         public int Health
         {
             get

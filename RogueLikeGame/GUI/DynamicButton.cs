@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Drawing;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,15 +11,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace RogueLikeGame.GUI
 {
-    public delegate void MouseEnter();
-    public delegate void MouseLeft();
+   
 
    
     class DynamicButton : UIObjects
     {
-        private Button button = new Button();
+       
         private string text = "";
-    
+        
 
         public string Text
         {
@@ -35,12 +33,14 @@ namespace RogueLikeGame.GUI
         }
 
 
-        public event EventHandler Clicked;
 
-        public DynamicButton(string text)
+
+        public DynamicButton(string TEXT, int x, int y, Texture2D t2d)
         {
-            button.Location = new System.Drawing.Point(100, 100);
-            button.Show();
+            text = TEXT;
+            this.X = x;
+            this.Y = y;
+            this.Texture = t2d;
         }
 
         public override void Update(GameTime gameTime)
@@ -50,8 +50,10 @@ namespace RogueLikeGame.GUI
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
-       
+
+            spriteBatch.Draw(Texture,new Rectangle(X, Y, Width, Height), Color.White);
+            spriteBatch.DrawString(Game1.Font, text, new Vector2(X + Width / 15, Y + Height / 4), Color.Black);
+            
         }
 
         

@@ -72,8 +72,8 @@ namespace RogueLikeGame
             t2dtexture = Ttexture;
             this.X = XPOS;
             this.Y = YPOS;
-            height = HEIGHT;
-            width = WIDTH;
+            this.Height = HEIGHT;
+            this.Width = WIDTH;
             healthbar = new Healthbar(Game1.Healthbar, this.X + 20, this.Y + 20);
 
         }
@@ -88,6 +88,8 @@ namespace RogueLikeGame
 
         public override void Update(GameTime gameTime)
         {
+           
+
             base.Update(gameTime);
             Move();
             healthbar.X = this.X + 10;
@@ -98,13 +100,16 @@ namespace RogueLikeGame
                 experience = 0;
                 ExpToLevelUP *= 2;
             }
+          
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
            
-            spriteBatch.Draw(t2dtexture, new Rectangle(this.X, this.Y, width, height), Color.White);
+            spriteBatch.Draw(t2dtexture, new Rectangle(this.X, this.Y, this.Width, this.Height), Color.White);
             healthbar.Draw(spriteBatch);
+
         }
 
         public void Move()
@@ -130,7 +135,7 @@ namespace RogueLikeGame
 
             if (pressedkey.IsKeyDown(Keys.L))
             {
-                experience += 2;
+                experience += 5;
              
             }
         }

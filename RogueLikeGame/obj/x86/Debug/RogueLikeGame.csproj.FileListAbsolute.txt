@@ -91,3 +91,4 @@ D:\VS 2015\RogueLikeGame\RogueLikeGame\bin\Windows\x86\Debug\SharpDX.Direct3D9.x
 D:\VS 2015\RogueLikeGame\RogueLikeGame\obj\x86\Debug\RogueLikeGame.csprojResolveAssemblyReference.cache
 D:\VS 2015\RogueLikeGame\RogueLikeGame\bin\Windows\x86\Debug\Content\Textures\Demongirl.xnb
 D:\VS 2015\RogueLikeGame\RogueLikeGame\bin\Windows\x86\Debug\Content\Textures\HealthBar.xnb
+D:\VS 2015\RogueLikeGame\RogueLikeGame\bin\Windows\x86\Debug\Content\Textures\Button.xnb
