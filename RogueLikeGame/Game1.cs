@@ -134,7 +134,8 @@ namespace RogueLikeGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-           
+            player.damage(Witch);
+            Witch.getNearbyPlayer(player);
             debug.AddItem("" + player.Y);
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
@@ -174,7 +175,7 @@ namespace RogueLikeGame
             spriteBatch.DrawString(font, "Level: " + player.Level, new Vector2(0, 0), Color.White);
             spriteBatch.DrawString(font, "EXP: " + player.EXP, new Vector2(0, 40), Color.White);
             spriteBatch.DrawString(font, "exp to up: " + player.ExpToUP, new Vector2(0, 80), Color.White);
-
+            spriteBatch.DrawString(font, "Health: " + player.Health, new Vector2(0, 120), Color.White);
 
             map1.Draw(spriteBatch);
             debug.Draw(spriteBatch);

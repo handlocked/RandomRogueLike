@@ -14,6 +14,7 @@ namespace RogueLikeGame.GUI
     {
         private int xpos, ypos, width = 200, height = 100;
         private Texture2D t2d;
+        private bool focused = false;
 
         public int X
         {
@@ -47,7 +48,31 @@ namespace RogueLikeGame.GUI
 
         public virtual void Update(GameTime gameTime)
         {
-           
+            Rectangle rect = new Rectangle(this.X, this.Y, this.Width, this.Height);
+
+            var mouseState = Mouse.GetState();
+            var mouseposition = new Point(mouseState.X, mouseState.Y);
+
+            if (rect.Contains(mouseposition))
+            {
+                if (mouseState.RightButton == ButtonState.Pressed && !focused)
+                {
+                    this.X = mouseposition.X;
+                    this.Y = mouseposition.Y;
+                    focused = true;
+                }
+            }
+
+            if (mouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Pressed && focused)
+            {
+                this.X = mouseposition.X;
+                this.Y = mouseposition.Y;
+            }
+
+            if (mouseState.RightButton == Microsoft.Xna.Framework.Input.ButtonState.Released)
+            {
+                focused = false;
+            }
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)

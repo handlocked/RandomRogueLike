@@ -40,6 +40,10 @@ namespace RogueLikeGame
             messages.Add(message);
         }
 
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+        }
         public override void Draw(SpriteBatch spritebatch)
         {
           

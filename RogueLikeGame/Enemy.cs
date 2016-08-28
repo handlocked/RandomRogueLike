@@ -8,27 +8,33 @@ using Microsoft.Xna.Framework;
 
 namespace RogueLikeGame
 {
-    class Enemy
+    class Enemy : GameObject
     {
         Texture2D t2dtexture;
-        int xPos, yPos, height, width;
+       
 
         public Enemy(Texture2D Ttexture, int XPOS, int YPOS, int HEIGHT, int WIDTH)
         {
             t2dtexture = Ttexture;
-            xPos = XPOS;
-            yPos = YPOS;
-            height = HEIGHT;
-            width = WIDTH;
+            this.X = XPOS;
+            this.Y = YPOS;
+            this.Height = HEIGHT;
+            this.Width = WIDTH;
         }
-        public virtual void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
-
+            
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(t2dtexture, new Rectangle(xPos, yPos, width, height), Color.White);
+            spriteBatch.Draw(t2dtexture, new Rectangle(this.X, this.Y, this.Width, this.Height), Color.White);
+        }
+
+        public void getNearbyPlayer(Player player)
+        {
+            if (this.Rect.Contains(player.Rect)
+                player.Health = 50;
         }
     }
 }

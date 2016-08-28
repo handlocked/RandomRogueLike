@@ -17,7 +17,9 @@ namespace RogueLikeGame
     {
         private int experience = 0;
         Healthbar healthbar;
-       
+       /// <summary>
+       /// Current experience
+       /// </summary>
         public int EXP
         {
             get
@@ -31,7 +33,9 @@ namespace RogueLikeGame
         }
 
         private int level = 1;
-
+        /// <summary>
+        /// Current Level
+        /// </summary>
         public int Level
         {
             get
@@ -46,7 +50,9 @@ namespace RogueLikeGame
         }
 
         private int ExpToLevelUP = 10;
-
+        /// <summary>
+        /// exp zum Level up
+        /// </summary>
         public int ExpToUP
         {
             get
@@ -60,9 +66,20 @@ namespace RogueLikeGame
             }
         }
 
+   
+        private int health = 200;
+        /// <summary>
+        /// Aktuelles Leben 
+        /// </summary>
+        public int Health
+        {
+            get { return health; }
+            set { health = value; }
+        }
+
         KeyboardState pressedkey;
         Texture2D t2dtexture;
-        int width, height;
+      
        
 
     
@@ -74,6 +91,7 @@ namespace RogueLikeGame
             this.Y = YPOS;
             this.Height = HEIGHT;
             this.Width = WIDTH;
+            this.Rect = new Rectangle(this.X, this.Y, this.Width, this.Height);
             healthbar = new Healthbar(Game1.Healthbar, this.X + 20, this.Y + 20);
 
         }
@@ -137,6 +155,15 @@ namespace RogueLikeGame
             {
                 experience += 5;
              
+            }
+        }
+
+        public void damage(Enemy enemy)
+        {
+            var point = new Point(enemy.X, enemy.Y);
+            if(this.Rect.Contains(point))
+            {
+                Health -= 10;
             }
         }
            

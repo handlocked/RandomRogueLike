@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/VS 2015/RogueLikeGame/RogueLikeGame/Content/Textures/Demongirl.png</SourceFile>
-  <SourceTime>2016-08-17T15:43:05.4691553+02:00</SourceTime>
-  <DestFile>D:/VS 2015/RogueLikeGame/RogueLikeGame/Content/bin/Windows/Textures/Demongirl.xnb</DestFile>
-  <DestTime>2016-08-18T18:40:16.6701461+02:00</DestTime>
+  <SourceFile>C:/Users/Jurib_000/Desktop/RandomRogue/RogueLikeGame/Content/Textures/Demongirl.png</SourceFile>
+  <SourceTime>2016-08-21T18:56:54.2407004+02:00</SourceTime>
+  <DestFile>C:/Users/Jurib_000/Desktop/RandomRogue/RogueLikeGame/Content/bin/Windows/Textures/Demongirl.xnb</DestFile>
+  <DestTime>2016-08-27T13:33:25.1760419+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
